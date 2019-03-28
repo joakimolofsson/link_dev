@@ -1,17 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+var express = require('express');
+var bodyParser = require('body-parser');
 
-const app = express(),
+var app = express(),
 port = process.env.port || 3001;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.json({status: 'Working'});
+app.get('/', function(req, res) {
+    res.send({status: 'Working'});
 });
 
-app.listen(port, () => {
+app.listen(port, function() {
     console.log(`Server on port: ${port}`);
 });
