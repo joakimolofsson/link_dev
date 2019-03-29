@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route, Switch} from "react-router-dom";
 import './App.css';
+import Nav from './components/Nav';
+import Links from './components/Links';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 class App extends Component {
   state = {
     response: '',
@@ -9,12 +13,12 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.callApi()
+    /* this.callApi()
       .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err)); */
   }
 
-  callApi = async () => {
+/*   callApi = async () => {
     const response = await fetch('/api/hello');
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
@@ -32,23 +36,27 @@ class App extends Component {
     });
     const body = await response.text();
     this.setState({ responseToPost: body });
-  };
+  }; */
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Edit <code>src/App.js</code> and save to reload.</p>
-          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-        </header>
-        <p>{this.state.response}</p>
-        <form onSubmit={this.handleSubmit}>
-          <p><strong>Post to Server:</strong></p>
-          <input type="text" value={this.state.post} onChange={e => this.setState({ post: e.target.value })} />
-          <button type="submit">Submit</button>
-        </form>
-        <p>{this.state.responseToPost}</p>
+        <Nav />
+        <Route render={({location}) => (
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={0} classNames="fade">
+              <Switch location={location}>
+              <Links exact path="/links" component={Links} auth={this.state.auth} handleAuth={this.handleAuth} />
+              {/* <Route exact path="/" render={(props) => <Login {...props} handleAuth={this.handleAuth}/>} />
+              <Route exact path="/register" component={Register} />
+              <ProtectedRoute exact path="/links" component={Links} auth={this.state.auth} handleAuth={this.handleAuth}/>
+              <ProtectedRoute exact path="/addlink" component={AddLink} auth={this.state.auth} handleAuth={this.handleAuth}/>
+              <ProtectedRoute exact path="/profile" component={Profile} auth={this.state.auth} handleAuth={this.handleAuth}/>
+              <Route component={NotFound} /> */}
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )} />
       </div>
     );
   }

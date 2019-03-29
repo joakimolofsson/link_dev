@@ -1,0 +1,221 @@
+.Links {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.Links .message {
+    color: white;
+    margin: 5px auto;
+    height: 18px;
+}
+
+.Links .success {
+    color: white;
+}
+
+.Links .titleContainer {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.Links .filterContainer {
+    padding: 5px;
+    background: #0055a5;
+    position: relative;
+    z-index: 100000;
+}
+
+.Links .filterContainer p {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.Links .filterContainer p:hover {
+    color: white;
+}
+
+.Links .active {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+
+
+.Links .allLinksContainer {
+    position: absolute;
+    width: auto;
+    height: 100%;
+    padding: 0 50px;
+    /* background: red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Links .linkContainer {
+    position: relative;
+    display: inline-block;
+    writing-mode: vertical-rl;
+    width: auto;
+    height: 80%;
+    background: #0053a0;
+    transition: 1s padding;
+}
+.Links .linkContainer:hover {
+    padding: 0 10px;
+}
+
+.Links .closedLinkContainer {
+    perspective: 1000px;
+}
+
+.Links .closedLinkContainer .container {
+    position: relative;
+    padding: 10px 0;
+    transform-origin: center bottom;
+    transition: 1s all;
+    background: #0084ff;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0), 0 0 0 0 white;
+}
+.Links .linkContainer:hover .closedLinkContainer .container {
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.5), 0 -10px 0 0 white;
+    transform: rotateX(-10deg) rotate(-2deg) translateY(3%);
+    border-radius: 5px;
+}
+
+.Links .closedLinkContainer .description {
+    width: 100%; 
+    color: white;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Links .pulledOutLink .container {
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,0.5), 0 -10px 0 0 white;
+    transform: rotateX(-10deg) rotate(-2deg) translateY(3%);
+    border-radius: 5px;
+}
+
+
+.Links .show {
+    animation: showBg 1s forwards;
+}
+@keyframes showBg {
+    0% {
+        background: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background: rgba(0,0,0,0.5);
+    }
+}
+.Links .show .container {
+    animation: showContainer 1s forwards;
+}
+@keyframes showContainer {
+    0% {
+        top: 45%;
+        opacity: 0;
+    }
+    100% {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.Links .hide {
+    animation: hideBg 1s forwards;
+}
+@keyframes hideBg {
+    0% {
+        background: rgba(0,0,0,0.5);
+    }
+    100% {
+        background: rgba(0, 0, 0, 0);
+    }
+}
+.Links .hide .container {
+    animation: hideContainer 1s forwards;
+}
+@keyframes hideContainer {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        top: 45%;
+        opacity: 0;
+    }
+}
+
+.Links .openedLinkContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background: rgba(0,0,0,0.5); */
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    white-space: normal;
+    word-break: break-word;
+    display: none;
+    writing-mode: horizontal-tb;
+}
+
+.Links .openedLinkContainer .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    min-width: 25%;
+    height: auto;
+    padding: 20px;
+    text-align: left;
+    background: white;
+    border-radius: 5px;
+}
+
+.Links .openedLinkContainer .link {
+    font-size: 20px;
+    color: #0084ff;
+}
+
+.Links .openedLinkContainer .description {
+    margin: 20px 0;
+    font-size: 25px !important;
+    font-family: 'Josefin sans' !important;
+}
+
+.Links .openedLinkContainer .rateContainer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.Links .openedLinkContainer .rateContainer p {
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.Links .openedLinkContainer .rated {
+    color: #0084ff;
+    text-decoration: underline;
+}
+
+.Links .openedLinkContainer .posted {
+    font-size: 13px;
+    text-align: right;
+}

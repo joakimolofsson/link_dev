@@ -1,0 +1,191 @@
+.Nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 50px;
+    padding: 10px 10px 7px 10px;
+    /* box-shadow: 0 2px 10px rgba(0,0,0,0.2); */
+    /* background: #0084ff; */
+    transition: .5s top;
+    overflow: hidden;
+}
+
+.showLinks {
+    top: 66px;
+    transition: .5s top;
+}
+
+.Nav h1 {
+    display: inline-block;
+    color: white;
+}
+
+.Nav .infoContainer {
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+
+
+.Nav .hamBarContainer {
+    position: relative;
+    float: right;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.Nav .hamBarContainer .hamBarClosed {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(45deg);
+    animation: hamBarClosed .5s forwards;
+}
+@keyframes hamBarClosed {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.Nav .hamBarContainer .hamBarClosed::before {
+    content: '';    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(-90deg);
+    animation: hamBarClosedBefore .5s forwards;
+}
+@keyframes hamBarClosedBefore {
+    50% {
+        transform: rotate(0deg);
+        top: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        top: -13px;
+    }
+}
+.Nav .hamBarContainer .hamBarClosed::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(-90deg);
+    animation: hamBarClosedAfter .5s forwards;
+}
+@keyframes hamBarClosedAfter {
+    50% {
+        transform: rotate(0deg);
+        top: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        top: 13px;
+    }
+}
+
+.Nav .hamBarContainer .hamBarOpen {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(0deg);
+    animation: hamBarOpen .5s forwards;
+}
+@keyframes hamBarOpen {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+.Nav .hamBarContainer .hamBarOpen::before {
+    content: '';    
+    position: absolute;
+    top: -13px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(0deg);
+    animation: hamBarOpenBefore .5s forwards;
+}
+@keyframes hamBarOpenBefore {
+    50% {
+        transform: rotate(0deg);
+        top: 0;
+    }
+    100% {
+        transform: rotate(-90deg);
+        top: 0;
+    }
+}
+.Nav .hamBarContainer .hamBarOpen::after {
+    content: '';    
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: white;
+    transform: rotate(0deg);
+    animation: hamBarOpenAfter .5s forwards;
+}
+@keyframes hamBarOpenAfter {
+    50% {
+        transform: rotate(0deg);
+        top: 0;
+    }
+    100% {
+        transform: rotate(-90deg);
+        top: 0;
+    }
+}
+
+
+
+.Nav .navContainer {
+    position: fixed;
+    top: -66px;
+    right: 0;
+    width: 100%;
+    height: 66px;
+    background: white;
+    text-align: center;
+    transition: .5s top;
+}
+
+.Nav .showLinks {
+    top: 0;
+}
+
+.Nav .navContainer a {
+    text-decoration: none;
+    color: black;
+    padding: 25px 5%;
+    line-height: 66px;
+}
+
+.Nav .navContainer a:hover {
+    text-decoration: underline;
+    background: #0084ff;
+    color: white;
+}
