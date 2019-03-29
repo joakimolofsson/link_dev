@@ -4,9 +4,15 @@ const mongoose = require('mongoose');
 const path = require('path');
 const api = require('./routes/api');
 
-mongoose.connect("mongodb+srv://joakimolofsson:clulosen123!@devcluster-oioh2.gcp.mongodb.net/test?retryWrites=true", { useNewUrlParser: true }, function(err) {
-    console.log(err);
-});
+const mongoDb = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+        console.log('MongoDB Connected');
+    } catch(err) {
+        console.log(`MongoDB Error: ${err}`);
+    }
+}
+mongoDb();
 
 const app = express();
 const port = process.env.PORT || 5000;

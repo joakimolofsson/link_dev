@@ -3,7 +3,7 @@ import './css/Links.css';
 
 class Links extends Component {
     state = {
-        response: 'resp'
+        linkArray: []
     }
 
     componentDidMount = () => {
@@ -24,7 +24,7 @@ class Links extends Component {
             });
             const res = await getLinks.json();
             this.setState({
-                response: res.msg
+                linkArray: [res.msg]
             });
         } catch(err) {
             console.log(err);
@@ -36,7 +36,13 @@ class Links extends Component {
         return(
             <div className="Links">
                 <h1>LINKS</h1>
-                <p>{this.state.response}</p>
+                {this.state.linkArray.map(data => {
+                    return (
+                        <div key={data._id}>
+                            <p>{data.link}</p>
+                        </div>
+                    )
+                })}
             </div>
         )
     }
