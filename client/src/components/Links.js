@@ -23,8 +23,9 @@ class Links extends Component {
                 })
             });
             const res = await getLinks.json();
+            console.log(res.msg)
             this.setState({
-                linkArray: [res.msg]
+                linkArray: res.msg
             });
         } catch(err) {
             console.log(err);

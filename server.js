@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotEnv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const api = require('./routes/api');
 
+dotEnv.config();
 const mongoDb = async () => {
     try {
         await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
