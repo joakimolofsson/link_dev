@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const api = require('./routes/api');
 
-mongoose.connect('mongodb://joakimolofsson:clulosen123!@devcluster-shard-00-00-oioh2.gcp.mongodb.net:27017,devcluster-shard-00-01-oioh2.gcp.mongodb.net:27017,devcluster-shard-00-02-oioh2.gcp.mongodb.net:27017/mern_app_db?ssl=true&replicaSet=DevCluster-shard-0&authSource=admin&retryWrites=true', { useNewUrlParser: true }, function(err) {
+mongoose.connect("mongodb+srv://joakimolofsson:clulosen123!@devcluster-oioh2.gcp.mongodb.net/test?retryWrites=true", { useNewUrlParser: true }, function(err) {
     console.log(err);
 });
 
