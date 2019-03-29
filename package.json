@@ -24,7 +24,8 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "express-router": "0.0.1"
+    "express-router": "0.0.1",
+    "mongoose": "^5.4.20"
   },
   "devDependencies": {
     "concurrently": "^4.1.0"
